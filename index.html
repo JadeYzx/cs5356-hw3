@@ -66,6 +66,8 @@
                 for those who are curious what it is. U also used blockquote for showing the quote for the day. </p>
             <p>For a CSS property we haven't talked about, I used transition for the button of the dialog, so that when you hover over the button, instead of instantly changing color and size, it gradually transitions, making the effect smoother and more visually appealing.
                 When you remove the hover, the transition applies in reverse, smoothly returning to the original state. </p>
+            <p>For extra credit, I used MouseMove Event. As you move your mouse over the text, the color changes dynamically based on the cursor’s position.
+                When the mouse leaves, the color resets to the default.</p>
         </div>
 
         <div>
@@ -103,6 +105,19 @@
     </main>
 
     <script>
+        const welcomeText = document.querySelector(".welcome");
+
+        welcomeText.addEventListener("mousemove", (event) => {
+        const red = Math.floor((event.offsetX / welcomeText.clientWidth) * 255);
+        const blue = Math.floor((event.offsetY / welcomeText.clientHeight) * 255);
+        
+        welcomeText.style.color = `rgb(${red}, 100, ${blue})`;
+        });
+
+        welcomeText.addEventListener("mouseleave", () => {
+        welcomeText.style.color = ""; 
+        });
+
         function getRandomQuote() {
           fetch('https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand')
             .then(response => response.json())
@@ -121,7 +136,6 @@
             });
         }
     
-        // Load a quote when the page loads
         window.onload = getRandomQuote;
       </script>
 </body>
