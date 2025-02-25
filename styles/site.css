@@ -39,11 +39,11 @@ h1 {
 }
 
 .welcome {
-    font-size: 2em;
+    font-size: 3em;
     font-style: italic;
     color: cadetblue;
     background-color: rgb(229, 242, 241);
-    margin: 3%;
+    white-space: nowrap;
 }
 
 img {
@@ -74,6 +74,7 @@ p {
 .heads {
     display: flex;
     align-items: center;
+    justify-content: space-around; /* Optional: Adjust alignment based on your layout */
 }
 
 figure {
@@ -83,4 +84,108 @@ figure {
 
 .date {
     font-style: italic;
+}
+
+dialog {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    width: 400px;
+}
+
+dialog p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: cadetblue;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(66, 110, 111);
+    transform: scale(1.1);
+}
+
+picture {
+    margin-right: 5%;
+}
+
+blockquote {
+    margin: 0;
+}
+
+div:has(> blockquote) {
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  blockquote p::before {
+    content: "\201C";
+  }
+  
+  blockquote p::after {
+    content: "\201D";
+  }
+  
+  blockquote + p {
+    text-align: right;
+  }
+
+
+.pipa {
+    max-width: 100px;
+}
+
+.meme {
+    max-width: 200px;
+    margin-left: 40px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .heads {
+        max-width: 400px;
+        flex-direction: column; /* Switch to vertical layout */
+        align-items: flex-start; /* Adjust the alignment to the start, you can change this if needed */
+    }
+
+    figure {
+        display: inline-block;
+        margin-left: 1%;
+    }
+    
+    figure img {
+        max-width: 400px;
+    }
+
+    dialog {
+        max-width: 400px;
+        margin: 0;
+    }
+
+    nav ul li {
+        padding: 1em;
+    }
+
+    .welcome {
+        font-size: 2.5em;
+        font-style: italic;
+        color: cadetblue;
+        background-color: rgb(229, 242, 241);
+        white-space: nowrap;
+    }
 }

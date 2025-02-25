@@ -29,21 +29,49 @@
     </nav>
 
     <h1>Jade Yang</h1>
+    
+    <dialog open>
+        <p>Welcome to my personal website!!!</p>
+        <figure>
+            <!-- Source: Online -->
+            <img src="images/meme.webp" alt="meme" class="meme">
+        </figure>
+        </details>
+        <form method="dialog">
+          <button>Click to view</button>
+        </form>
+    </dialog>
 
     <div class="heads">
         <picture>
             <!-- Source: (original work) Jade Yang -->
             <img src="images/profile-pic.jpg" alt="profile picture" class="profile">
         </picture>
-
-        <h2 class="welcome">Hi! Welcome to my website!</h2>
+        <div>
+            <h2 class="welcome">Welcome to my website!</h2>
+            <div>
+              <blockquote>
+                <h2>A quote for the day:</h2>
+              <p id="quoteContent">Please wait...</p>
+              <p id="quoteTitle">Loading...</p>
+            </blockquote>
+            </div>
+        </div>
     </div>
 
     <main>
         <div>
+            <h2>For this course (cs5356)</h2>
+            <p>For an HTML element we haven't talked about, I used dialog and details. Dialog provides an interaction with the audience and details show a picture of Pipa, 
+                for those who are curious what it is. U also used blockquote for showing the quote for the day. </p>
+            <p>For a CSS property we haven't talked about, I used transition for the button of the dialog, so that when you hover over the button, instead of instantly changing color and size, it gradually transitions, making the effect smoother and more visually appealing.
+                When you remove the hover, the transition applies in reverse, smoothly returning to the original state. </p>
+        </div>
+
+        <div>
             <h2>About Me</h2>
-            <p>I'm originally from Shenyang, China. I’m a junior at Cornell University, planning to double major in
-                Economics and Information Science. I’m very interested in fields related to economics, and data
+            <p>I'm originally from Shenyang, China. I'm a first year master student at Cornell Tech. I graduated from Cornell University on 2024, with double major in
+                Economics and Information Science. I'm very interested in fields related to computer science, machine learning, and data
                 collection
                 and
                 analysis. Such interest is strengthened as I took more economic, information science, and other related
@@ -55,9 +83,17 @@
 
         <div>
             <h2>Skills</h2>
-            <p>I’m good at Java, Python, HTML, CSS, JavaScript, Stata, Figma, and video editing, and I’m more than
+            <p>I'm good at Java, Python, C, JavaScript, Stata, Figma, and video editing, and I'm more than
                 willing
                 to learn more skills like Matlab and R in the future.</p>
+            <details>
+            <summary>Moreover, I play Pipa, a traditional Chinese musical instrument, since elementry school. It's a great way to relax and express myself.</summary>
+            <figure>
+                <!-- Source: Online -->
+                <img src="images/pipa-1.png" alt="pipa" class="pipa">
+            </figure>
+            </details>
+
         </div>
         <div>
             <h2>Contact Information</h2>
@@ -65,6 +101,29 @@
             <p>Phone: (607)262-3548 Email: zy389@cornell.edu</p>
         </div>
     </main>
+
+    <script>
+        function getRandomQuote() {
+          fetch('https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand')
+            .then(response => response.json())
+            .then(data => {
+              const quote = data[0]; 
+              const title = quote.title.rendered;
+              const content = quote.content.rendered;
+
+              document.getElementById('quoteTitle').innerHTML = title;
+              document.getElementById('quoteContent').innerHTML = content;
+            })
+            .catch(error => {
+              console.error('Error fetching quote:', error);
+              document.getElementById('quoteTitle').innerHTML = 'Error';
+              document.getElementById('quoteContent').innerHTML = 'Could not fetch the quote at this time.';
+            });
+        }
+    
+        // Load a quote when the page loads
+        window.onload = getRandomQuote;
+      </script>
 </body>
 
 </html>
