@@ -166,14 +166,15 @@ section {
     padding-left: 1.5%;
 }
 
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     .heads {
         max-width: 400px;
         flex-direction: column; 
         align-items: flex-start; 
     }
+}
 
+@media screen and (max-width: 600px) {
     figure {
         display: inline-block;
         margin-left: 1%;
@@ -202,9 +203,6 @@ section {
 }
 
 @media screen and (max-width: 450px) {
-    .heads {
-        max-width: 300px;
-    }
 
     figure img {
         max-width: 95%;
