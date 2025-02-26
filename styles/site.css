@@ -58,6 +58,7 @@ h2 {
 .note {
     font-size: 1.5em;
     border-left: 0.5em solid #92cfb8;
+    margin-top: 0.2em;
 }
 
 p {
@@ -187,5 +188,39 @@ div:has(> blockquote) {
         color: cadetblue;
         background-color: rgb(229, 242, 241);
         white-space: nowrap;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .heads {
+        max-width: 300px;
+        flex-direction: column; /* Switch to vertical layout */
+        align-items: flex-start; /* Adjust the alignment to the start, you can change this if needed */
+    }
+
+    figure {
+        display: inline-block;
+        margin-left: 1%;
+    }
+    
+    figure img {
+        max-width: 300px;
+    }
+
+    dialog {
+        max-width: 300px;
+        margin: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        width: 300px;
+    }
+
+    .welcome {
+        font-size: 2em;
     }
 }
