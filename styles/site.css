@@ -83,6 +83,12 @@ figure {
     margin-left: 5%;
 }
 
+.photo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
 .date {
     font-style: italic;
 }
@@ -156,12 +162,16 @@ div:has(> blockquote) {
     margin-left: 40px;
 }
 
+section {
+    padding-left: 1.5%;
+}
+
 
 @media screen and (max-width: 600px) {
     .heads {
         max-width: 400px;
-        flex-direction: column; /* Switch to vertical layout */
-        align-items: flex-start; /* Adjust the alignment to the start, you can change this if needed */
+        flex-direction: column; 
+        align-items: flex-start; 
     }
 
     figure {
@@ -194,22 +204,15 @@ div:has(> blockquote) {
 @media screen and (max-width: 450px) {
     .heads {
         max-width: 300px;
-        flex-direction: column; /* Switch to vertical layout */
-        align-items: flex-start; /* Adjust the alignment to the start, you can change this if needed */
     }
 
-    figure {
-        display: inline-block;
-        margin-left: 1%;
-    }
-    
     figure img {
-        max-width: 300px;
+        max-width: 95%;
+        margin-right: 0;
     }
 
     dialog {
         max-width: 300px;
-        margin: 0;
     }
 
     nav ul {
